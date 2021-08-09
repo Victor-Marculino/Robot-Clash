@@ -1,0 +1,46 @@
+*** Settings ***
+
+Library     SeleniumLibrary
+Library     DebugLibrary
+Library    Telnet
+
+*** Variables ***
+
+${BROWSER}                    Chrome
+${URL_CLASH}                  https://developer.clashroyale.com/
+${URL_EMAIL}                  https://mail.google.com/mail/u/1/#inbox
+${CLICK_REGISTER}             xpath=//*[@id="content"]/div/div[2]/div/header/div/div/div[3]/div/a[1]
+${INPUT_NAME}                 Victor Marculino
+${INPUT_EMAIL}                vjrmarculino@gmail.com
+${CLICK_NAME}                 id="name"
+${CLICK_EMAIL}                id="email"
+${CLICK_SUBMIT}               xpath=//*[@id="content"]/div/div[2]/div/div/section[2]/section/div/div/div[3]/form/div[4]/button/span[1]
+${CLICK_EMAIL_WELCOME}        xpath=//*[@id=":25"]
+${CLICK_VERIFY}               xpath=//*[@id="m_2911529515537671919content"]/p[3]/a
+
+*** Keywords ***
+
+Atv 1
+    [Documentation]    Realizar Login
+    Login
+    
+ 
+*** Tasks ***
+
+Login
+    Open Browser    ${BROWSER}    ${URL_CLASH}
+    Maximize Browser Window    
+    Set Browser Implicit Wait    5s
+    Click Element     ${CLICK_REGISTER}
+    Input Text    ${NAME}    Victor Marculino
+    Input Text    ${EMAIL}    vjrmarculino@gmail.com
+    Sleep    2s
+    Click Element    ${CLICK_SUBMIT}
+
+
+
+
+
+
+
+
